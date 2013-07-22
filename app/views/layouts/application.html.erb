@@ -13,10 +13,11 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "DareDevil" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
+   
     <%= csrf_meta_tags %>
   </head>
 
@@ -68,7 +69,7 @@
           <li><a href="#">Profile</a>
           <li class="divider"></li>
           <li class="has-form">
-            <%= link_to("Login", controller: "users", action: "new") %>
+            <%= link_to("Register", controller: "users", action: "new") %>
           </li>
           <li class="divider"></li>
           <li class="has-form">

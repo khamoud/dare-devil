@@ -5,7 +5,7 @@
 			<h3><%= @dare.title %></h3>
 			<h4><%= @dare.user.username%></h4>
   			<div class="flex-video">
-  				<iframe width="420" height="315" src="http://www.youtube.com/embed/0_EW8aNgKlA" frameborder="0" allowfullscreen></iframe>
+  				<iframe width="560" height="315" src="//www.youtube.com/embed/<%=@dare.url%>" frameborder="0" allowfullscreen></iframe>
 			</div>
 	  		<p><%= @dare.description %></p>
 	  		<div class="progress large-6 success round"><span class="meter" style="width: <%=(@dare.current_price/@dare.target_price)*100%>%"></span></div>
