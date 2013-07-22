@@ -12,7 +12,8 @@
 		  	<li><a href="/dares/<%=dare.id%>"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
 		  		<a href="/dares/<%=dare.id%>"><h3><%=dare.title%></h3></a>
 		  		<p><a href="/users/<%=dare.user.id%>"><%=dare.user.username%></a></p>
-		  		<p><%=dare.description%></p> 
+		  		<p><%=dare.description%></p>
+		  		<p>$<%=dare.current_price%>0 out of $<%=dare.target_price%>0 has been raised for this dare.</p> 
 		  	</li>
 		  	<%end%>
 		</ul>

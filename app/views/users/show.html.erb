@@ -11,22 +11,12 @@
 		    		<p class="title" data-section-title><a href="#panel1">Active or completed dares</a></p>
 		    		<div class="content" data-section-content>
 		      			<ul class="small-block-grid-4 small-centered">
+		      				<%@user.dares.all.each do |dare| %>
 						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
-								<h3>Title</h3>
-						  		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p> 
+								<h3><%=dare.title%></h3>
+						  		<p><%=dare.description%></p> 
 						  	</li>
-						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
-								<h3>Title</h3>
-						  		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p> 
-						  	</li>
-						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
-								<h3>Title</h3>
-						  		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p> 
-						  	</li>
-						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
-								<h3>Title</h3>
-						  		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p> 
-						  	</li>
+						  	<%end%>
 						</ul>
 		    		</div>
 		 		</section>
@@ -34,18 +24,13 @@
 		    		<p class="title" data-section-title><a href="#panel1">Dares Funded</a></p>
 		    		<div class="content" data-section-content>
 		      			<ul class="small-block-grid-4 small-centered">
+		      				<%@user.backers.all.each do |backed| %>
 						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
-								<h3>Title</h3>
-						  		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p> 
+								<h3><%=backed.dare.title%></h3>
+						  		<p><%=backed.dare.description%></p>
+						  		<p><%=@user.username%> funded $<%=backed.amount%> for this dare</p> 
 						  	</li>
-						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
-								<h3>Title</h3>
-						  		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p> 
-						  	</li>
-						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
-								<h3>Title</h3>
-						  		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p> 
-						  	</li>
+						  	<%end%>
 						</ul>
 		    		</div>
 		  		</section>
