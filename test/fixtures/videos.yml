@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dare: 
+  url: MyString
+
+two:
+  dare: 
+  url: MyString

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  target_price: 1.5
+  current_price: 1.5
+  completed: false
+  funding_period: 1
+  days_passed: 1
+  user: 
+
+two:
+  title: MyString
+  description: MyText
+  target_price: 1.5
+  current_price: 1.5
+  completed: false
+  funding_period: 1
+  days_passed: 1
+  user: 
