@@ -1,6 +1,5 @@
 DareDevil::Application.routes.draw do
 
-
   devise_for :users
   resources :dares
   resources :users
