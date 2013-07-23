@@ -41,11 +41,11 @@
           <li class="divider"></li>
           <li><%= link_to "Home", controller: "dares", action: "index" %></li>
           <li class="divider"></li>
+          <li><a href="#"><%= link_to "Create a Dare", controller: "dares", action: "new" %></a>
+          <li class="divider"></li>
           <li><a href="#">About</a></li>
           <li class="divider"></li>
           <li><a href="#">Contact</a></li>
-          <li class="divider"></li>
-          <li><a href="#"><%= link_to "Create a Dare", controller: "dares", action: "new" %></a>
           <li class="divider"></li>
         </ul>
 
@@ -69,11 +69,16 @@
           <li><a href="#">Profile</a>
           <li class="divider"></li>
           <li class="has-form">
-            <%= link_to("Register", controller: "users", action: "new") %>
-          </li>
-          <li class="divider"></li>
-          <li class="has-form">
-            <%= link_to("Login", controller: "users", action: "new") %>
+            <% if user_signed_in? %>
+                Signed in as <%= current_user.email %>. Not you?
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path %>  
+              <li class="divider"></li>
+              <li>
+              <%= link_to "sign in", new_user_session_path %>
+              </li>
+            <% end %>
           </li>
         </ul>
       </section>
