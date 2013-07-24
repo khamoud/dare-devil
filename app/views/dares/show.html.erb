@@ -8,7 +8,7 @@
   				<iframe width="560" height="315" src="//www.youtube.com/embed/<%=@dare.url%>" frameborder="0" allowfullscreen></iframe>
 			</div>
 	  		<p><%= @dare.description %></p>
-	  		<div class="progress large-6 success round"><span class="meter" style="width: <%=(@dare.current_price/@dare.target_price)*100%>%"></span></div>
+	  		<div class="progress large-6 success round"><span class="meter" style="width: <%=@dare.percent%>%"></span></div>
         	<textarea placeholder="Leave a comment..."></textarea>
         	<input type="submit" class="button" value="Comment">
 	  	</div>

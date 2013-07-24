@@ -12,8 +12,8 @@
 		    		<div class="content" data-section-content>
 		      			<ul class="small-block-grid-4 small-centered">
 		      				<%@user.dares.all.each do |dare| %>
-						  	<li><a href="#"><img src="http://img.youtube.com/vi/<%=dare.url %>/0.jpg"></a>
-								<h3><%=dare.title%></h3>
+						  	<li><a href="/dares/<%=dare.id%>"><img src="http://img.youtube.com/vi/<%=dare.url %>/0.jpg"></a>
+								<a href="/dares/<%=dare.id%>"><h3><%=dare.title%></h3></a>
 						  		<p><%=dare.description%></p> 
 						  	</li>
 						  	<%end%>
@@ -25,8 +25,8 @@
 		    		<div class="content" data-section-content>
 		      			<ul class="small-block-grid-4 small-centered">
 		      				<%@user.backers.all.each do |backed| %>
-						  	<li><a href="#"><img src="http://img.youtube.com/vi/<%=backed.dare.url %>/0.jpg"></a>
-								<h3><%=backed.dare.title%></h3>
+						  	<li><a href="/dares/<%=backed.id%>"><img src="http://img.youtube.com/vi/<%=backed.dare.url %>/0.jpg"></a>
+								<a href="/dares/<%=backed.id%>"><h3><%=backed.dare.title%></h3></a>
 						  		<p><%=backed.dare.description%></p>
 						  		<p><%=@user.name%> funded $<%=backed.amount%> for this dare</p> 
 						  	</li>
