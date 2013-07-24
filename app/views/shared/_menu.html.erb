@@ -41,20 +41,18 @@
             </form>
           </li>
           <li class="divider show-for-small"></li>
-          <li><a href="#">Profile</a>
           <li class="divider"></li>
           <li class="has-form">
-            <% if user_signed_in? %>
-                Signed in as <%= current_user.email %>. Not you?
-              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-            <% else %>
-              <%= link_to "Sign up", new_user_registration_path %>  
-              <li class="divider"></li>
-              <li>
-              <%= link_to "sign in", new_user_session_path %>
-              </li>
-            <% end %>
+           <% if current_user %>
+            <a href="/users/<%= current_user.id%>"><%=current_user.name%></a>
           </li>
+          <li class="divider"></li>
+          <li class="has-form">
+            <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          </li>
+            <% else %>
+              <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+           <% end %>
         </ul>
       </section>
     </nav>

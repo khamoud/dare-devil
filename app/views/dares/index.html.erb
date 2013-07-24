@@ -11,7 +11,7 @@
 			<% @dares.each do |dare| %>
 		  	<li><a href="/dares/<%=dare.id%>"><img src="http://img.youtube.com/vi/<%=dare.url %>/0.jpg"></a>
 		  		<a href="/dares/<%=dare.id%>"><h3><%=dare.title%></h3></a>
-		  		<a href="/users/<%=dare.user.id%>"><%=dare.user.username%></a>
+		  		<a href="/users/<%=dare.user.id%>"><%=dare.user.name%></a>
 		  		<blockquote><%=dare.description%></blockquote>
 		  		<p>$<%=dare.current_price%>0 out of $<%=dare.target_price%>0 has been raised for this dare.</p> 
 		  	</li>

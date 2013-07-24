@@ -1,7 +1,7 @@
 <div class="row">
 		<div class="large-12 columns">
-			<h1 class="docs header"><%=@user.username%></h1>
-			<p class="subheader"><%=@user.bio%></p>
+			<h1 class="docs header"><%=@user.name%></h1>
+			<p class="subheader"><%=@user.id%></p>
 		</div>
 	</div>
 	<div class="row">
@@ -12,7 +12,7 @@
 		    		<div class="content" data-section-content>
 		      			<ul class="small-block-grid-4 small-centered">
 		      				<%@user.dares.all.each do |dare| %>
-						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
+						  	<li><a href="#"><img src="http://img.youtube.com/vi/<%=dare.url %>/0.jpg"></a>
 								<h3><%=dare.title%></h3>
 						  		<p><%=dare.description%></p> 
 						  	</li>
@@ -25,10 +25,10 @@
 		    		<div class="content" data-section-content>
 		      			<ul class="small-block-grid-4 small-centered">
 		      				<%@user.backers.all.each do |backed| %>
-						  	<li><a href="#"><%= image_tag("demo1.jpg", :alt => "demo") %></a>
+						  	<li><a href="#"><img src="http://img.youtube.com/vi/<%=backed.dare.url %>/0.jpg"></a>
 								<h3><%=backed.dare.title%></h3>
 						  		<p><%=backed.dare.description%></p>
-						  		<p><%=@user.username%> funded $<%=backed.amount%> for this dare</p> 
+						  		<p><%=@user.name%> funded $<%=backed.amount%> for this dare</p> 
 						  	</li>
 						  	<%end%>
 						</ul>

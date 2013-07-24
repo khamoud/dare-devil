@@ -34,6 +34,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
-gem 'devise'
 gem 'hirb'
 gem 'simple_form'
+gem 'omniauth-facebook'

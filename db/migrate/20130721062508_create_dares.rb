@@ -1,6 +1,5 @@
 class CreateDares < ActiveRecord::Migration
   def change
-    drop_table :dares
     
     create_table :dares do |t|
       t.string :title

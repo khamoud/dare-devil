@@ -1,5 +1,6 @@
 class CreateBackers < ActiveRecord::Migration
   def change
+
     create_table :backers do |t|
       t.float :amount
       t.references :user
