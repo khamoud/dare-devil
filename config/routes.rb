@@ -3,6 +3,7 @@ DareDevil::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  resources :payments, only: [ :new, :create ]
   
   resources :dares
   resources :users
