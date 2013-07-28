@@ -1,0 +1,12 @@
+<%= form_tag dare_charges_path do %>
+  <article>
+    <label class="amount">
+      <span>Amount: $5.00</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+          data-key="<%= 'pk_test_vZvHiuFoN6d4FEw1ZdQlTohW' %>"
+          data-description="Dare this Devil"
+          data-amount="500"></script>
+<% end %>

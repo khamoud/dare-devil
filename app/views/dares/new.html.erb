@@ -1,19 +1,27 @@
+	<% if flash[:success] %>
+	<p><%= flash[:success]%></p>
+<%elsif flash[:failure]%>
+	<% flash[:failure].each do |message| %>
+		<p><%= message %></p>
+	<%end%>
+<%end%>
+
 	<div class="row">
-		<form>
+		<form action="/dares/" method="post">
 	  		<fieldset>
 	    		<legend>New Dare</legend>
 
 	    		<div class="row">
 		      		<div class="large-12 columns">
 			        	<label>Dare Title</label>
-			        	<input type="text" placeholder="Title">
+			        	<input type="text" placeholder="Title" name="dare[title]">
 			      	</div>
 	    		</div>
 
 			    <div class="row">
 		      		<div class="large-12 columns">
 				        <label>Description</label>
-				        <textarea placeholder="What is the dare?"></textarea>
+				        <textarea placeholder="What is the dare?" name="dare[description]"></textarea>
 			      	</div>
 			    </div>
 		      	<div class="row collapse">
@@ -21,20 +29,25 @@
 					  	<span class="prefix">http://www.youtube.com/watch/?v=</span>
 					</div>
 					<div class="small-6 large-9 columns">
-					    <input type="text" placeholder="EQMLYtRDU90">
+					    <input type="text" placeholder="EQMLYtRDU90" name="dare[url]">
 					</div>
 			 	</div>
 			    <div class="row">
 			      	<div class="large-6 columns">
 				        <label>Target Price</label>
-				        <input type="text" placeholder="How much will you do this dare for?">
+				        <input type="text" placeholder="How much will you do this dare for?" name="dare[target_price]">
 			      	</div>
 		      		<div class="large-6 columns">
 			          		<label>Funding duration (number of days)</label>
-			            	<input type="text" placeholder="How long are you willing to wait?">
+			            	<input type="text" placeholder="How long are you willing to wait?" name="dare[funding_period]">
+			            	<input type="hidden" name="dare[user_id]" value="<%=current_user.id%>">
 			        </div>
 		      	</div>
+		      	<% if current_user %>
 		      	<input type="submit" class="button" value="Create the Dare!">
+		      	<% else %>
+		      	<p>You must <a href="/auth/facebook"> sign up or login </a>to create a dare</p>
+		      	<% end %>
 	  		</fieldset>
 		</form>
 	</div>

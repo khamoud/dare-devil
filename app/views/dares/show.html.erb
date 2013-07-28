@@ -7,9 +7,21 @@
   			<div class="flex-video">
   				<iframe width="560" height="315" src="//www.youtube.com/embed/<%=@dare.url%>" frameborder="0" allowfullscreen></iframe>
 			</div>
-	  		<p><%= @dare.description %></p>
+	  		<p><%= @dare.description %>
+	  			<form action="/dares/<%=@dare.id%>/charges#create" method="POST">
+				  <script
+				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-amount="100"
+				    data-name="$1 Dare"
+				    data-description="<%=@dare.title%>">
+				  </script>
+				</form>
+	  		</p>
 	  		<div class="progress large-6 success round"><span class="meter" style="width: <%=@dare.percent%>%"></span></div>
-        	<textarea placeholder="Leave a comment..."></textarea>
-        	<input type="submit" class="button" value="Comment">
+        	<!-- <textarea placeholder="Leave a comment..."></textarea>
+        	<input type="submit" class="button" value="Comment"> -->
 	  	</div>
 	</div>
+
+	

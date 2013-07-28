@@ -5,7 +5,9 @@ DareDevil::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   resources :payments, only: [ :new, :create ]
   
-  resources :dares
+  resources :dares do
+    resources :charges, only: [ :new, :create ]
+  end
   resources :users
   root :to => 'dares#index'
 

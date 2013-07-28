@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724140135) do
+ActiveRecord::Schema.define(:version => 20130728135706) do
 
   create_table "backers", :force => true do |t|
     t.float    "amount"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(:version => 20130724140135) do
   add_index "challenges", ["challeng_sender_id"], :name => "index_challenges_on_challeng_sender_id"
   add_index "challenges", ["challenge_reciever_id"], :name => "index_challenges_on_challenge_reciever_id"
   add_index "challenges", ["dare_id"], :name => "index_challenges_on_dare_id"
+
+  create_table "comments", :force => true do |t|
+    t.text     "comment"
+    t.integer  "user_id"
+    t.integer  "dare_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["dare_id"], :name => "index_comments_on_dare_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "dares", :force => true do |t|
     t.string   "title"

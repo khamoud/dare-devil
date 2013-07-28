@@ -13,7 +13,7 @@
 		  		<a href="/dares/<%=dare.id%>"><h3><%=dare.title%></h3></a>
 		  		<a href="/users/<%=dare.user.id%>"><%=dare.user.name%></a>
 		  		<blockquote><%=dare.description%></blockquote>
-		  		<p><%=number_to_currency(dare.current_price, :unit => '$')%> out of $<%=number_to_currency(dare.target_price, :unit => '$')%> has been raised for this dare.</p> 
+		  		<p><%=number_to_currency(dare.current_price, :unit => '$')%> out of <%=number_to_currency(dare.target_price, :unit => '$')%> has been raised for this dare.</p> 
 		  	</li>
 		  	<%end%>
 		</ul>
