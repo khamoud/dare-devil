@@ -2,6 +2,7 @@ class Dare < ActiveRecord::Base
   belongs_to :user
   has_many :backers
   has_many :challenges
+  has_many :comments
   attr_accessible :completed, :current_price, :days_passed, :description, :funding_period, :target_price, :title, :url, :user_id
 
   def percent

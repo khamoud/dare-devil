@@ -7,6 +7,7 @@ DareDevil::Application.routes.draw do
   
   resources :dares do
     resources :charges, only: [ :new, :create ]
+    resources :comments, only: [ :new, :create ]
   end
   resources :users
   root :to => 'dares#index'
