@@ -1,10 +1,16 @@
 DareDevil::Application.routes.draw do
 
+  get "contact/index"
+
+  get "about/index"
+
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   resources :payments, only: [ :new, :create ]
-  
+  resources :about, only: [:index]
+  resources :contact, only: [:index]
+
   resources :dares do
     resources :charges, only: [ :new, :create ]
     resources :comments, only: [ :new, :create ]

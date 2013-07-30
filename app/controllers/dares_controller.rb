@@ -10,7 +10,8 @@ class DaresController < ApplicationController
 
 
   def index
-  	@dares = Dare.all
+  	@dares = Dare.order("created_at DESC")
+    
   end
 
   def show

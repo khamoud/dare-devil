@@ -40,7 +40,9 @@
 		      		<div class="large-6 columns">
 			          		<label>Funding duration (number of days)</label>
 			            	<input type="text" placeholder="How long are you willing to wait?" name="dare[funding_period]">
-			            	<input type="hidden" name="dare[user_id]" value="<%=current_user.id%>">
+			            	<% if current_user %> 
+			            		<input type="hidden" name="dare[user_id]" value="<%=current_user.id%>">
+			            	<%end%>
 			        </div>
 		      	</div>
 		      	<% if current_user %>

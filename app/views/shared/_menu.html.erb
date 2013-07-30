@@ -18,29 +18,15 @@
           <li class="divider"></li>
           <li><a href="#"><%= link_to "Create a Dare", controller: "dares", action: "new" %></a>
           <li class="divider"></li>
-          <li><a href="#">About</a></li>
+          <li><a href="/about">About</a></li>
           <li class="divider"></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li class="divider"></li>
         </ul>
 
       <!-- Right Nav Section -->
       <ul class="right">
           <li class="divider hide-for-small"></li>
-          <li class="divider"></li>
-          <li class="has-form">
-            <form>
-              <div class="row collapse">
-                <div class="small-8 columns">
-                  <input type="text">
-                </div>
-                  <div class="small-4 columns">
-                  <a href="#" class="button">Search</a>
-                </div>
-              </div>
-            </form>
-          </li>
-          <li class="divider show-for-small"></li>
           <li class="divider"></li>
           <li class="has-form">
            <% if current_user %>
