@@ -44,16 +44,11 @@ class DaresController < ApplicationController
   # PUT /dares/1
   # PUT /dares/1.json
   def update
-    @dare = Dare.find(params[:id])
-
-    respond_to do |format|
-      if @dare.update_attributes(params[:dare])
-        format.html { redirect_to @dare, notice: 'Dare was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @dare.errors, status: :unprocessable_entity }
-      end
+    @dare = Dare.find(params[:dare_id])
+    @dare.finishedurl = params[:updateDare]
+    if @dare.update_attributes
+      flash[:success] = "You have finished the dare! Now upon approval you will recieve your funds!"
+      redirect_to @dare
     end
   end
 end

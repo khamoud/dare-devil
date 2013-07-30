@@ -1,32 +1,22 @@
 	<div class="row">
-		<form action="/dares/" method="post">
+		<form action="/dares/<%=@dare.id%>/" method="post">
 	  		<fieldset>
 	    		<legend>Finish the Dare</legend>
-
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 	    		<div class="row">
-		      		<div class="large-12 columns">
-			        	<label>Dare Title</label>
-			        	<input type="text" placeholder="Title" name="dare[title]">
-			      	</div>
+		      		<h4>Just put the YouTube video link down below!</h4>
 	    		</div>
-
-			    <div class="row">
-		      		<div class="large-12 columns">
-				        <label>Description</label>
-				        <textarea placeholder="What is the dare?" name="dare[description]"></textarea>
-			      	</div>
-			    </div>
+	    		<br>
 		      	<div class="row collapse">
 					<div class="small-3 large-3 columns">
 					  	<span class="prefix">http://www.youtube.com/watch/?v=</span>
 					</div>
 					<div class="small-6 large-9 columns">
-					    <input type="text" placeholder="EQMLYtRDU90" name="dare[url]">
+					    <input type="text" placeholder="EQMLYtRDU90" name="updateDare[url]">
 					</div>
 			 	</div>
-			    
+			 	<input type="hidden" name="_method" value="put">
 		      	<input type="submit" class="button" value="Finish the Dare!">
-		      	<% end %>
 	  		</fieldset>
 		</form>
 	</div>

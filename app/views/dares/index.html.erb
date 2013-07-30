@@ -14,6 +14,7 @@
 		  		<a href="/users/<%=dare.user.id%>"><%=dare.user.name%></a>
 		  		<blockquote><%=dare.description%></blockquote>
 		  		<p><%=number_to_currency(dare.current_price, :unit => '$')%> out of <%=number_to_currency(dare.target_price, :unit => '$')%> has been raised for this dare.</p> 
+		  		<div class="progress large-12 success round"><span class="meter" style="width: <%=dare.percent%>%"></span></div>
 		  	</li>
 		  	<%end%>
 		</ul>
