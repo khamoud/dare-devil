@@ -1,1 +1,4 @@
-<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+<div class="row">
+	<h2>Thanks, you paid <strong><%=number_to_currency((@amount/100), :unit => "$")%></strong>!</h2>
+	<p><a href="/dares/<%=@dare.id%>">Return to the dare</p>
+</div>

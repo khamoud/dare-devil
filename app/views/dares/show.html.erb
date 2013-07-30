@@ -8,7 +8,8 @@
   				<iframe width="560" height="315" src="//www.youtube.com/embed/<%=@dare.url%>" frameborder="0" allowfullscreen></iframe>
 			</div>
 	  		<p><%= @dare.description %>
-	  			<form action="/dares/<%=@dare.id%>/charges#create" method="POST">
+	  			<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+	  			  <h6>$1 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
 				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
@@ -16,26 +17,67 @@
 				    data-name="$1 Dare"
 				    data-description="<%=@dare.title%>">
 				  </script>
+				  <input type="hidden" name="pay" value="1">
+				</form>
+				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+					<h6>$5 Dare</h6>
+				  <script
+				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-amount="500"
+				    data-name="$5 Dare"
+				    data-description="<%=@dare.title%>">
+				  </script>
+				  <input type="hidden" name="pay" value="5">
+				</form>
+				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+					<h6>$10 Dare</h6>
+				  <script
+				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-amount="1000"
+				    data-name="$10 Dare"
+				    data-description="<%=@dare.title%>">
+				  </script>
+				  <input type="hidden" name="pay" value="10">
+				</form>
+				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+					<h6>$20 Dare</h6>
+				  <script
+				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-amount="2000"
+				    data-name="$20 Dare"
+				    data-description="<%=@dare.title%>">
+				  </script>
+				  <input type="hidden" name="pay" value="20">
+				</form>
+				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+					<h6>$50 Dare</h6>
+				  <script
+				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-amount="5000"
+				    data-name="$50 Dare"
+				    data-description="<%=@dare.title%>">
+				  </script>
+				  <input type="hidden" name="pay" value="50">
+				</form>
+				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+					<h6>$100</h6>
+				  <script
+				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-amount="10000"
+				    data-name="$100 Dare"
+				    data-description="<%=@dare.title%>">
+				  </script>
+				  <input type="hidden" name="pay" value="100">
 				</form>
 	  		</p>
 	  		<p><%= number_to_currency(@dare.current_price, :unit => "$") %> out of <%= number_to_currency(@dare.target_price, :unit=> "$")%> has been raised </p>
 	  		<div class="progress large-6 success round"><span class="meter" style="width: <%=@dare.percent%>%"></span></div>
         	
-			<% if current_user %> 	
-	        	<form action="/dares/<%=@dare.id%>/comments" method="POST">
-	        		<textarea placeholder="Leave a comment..." name="comment[comment]"></textarea>
-	        		<input type="hidden" name="comment[user_id]" value="<%= current_user.id%>">
-	        		<input type="submit" class="button" value="Comment">
-	        	</form>
-	        <% else %>
-	        	<p>You must <a href="/auth/facebook"> sign up or login </a>to comment</p>
-	        <%end%>
-	        <% @comments.each do |comment| %>
-				<div class="comment">
-					<p><a href="/users/<%= comment.user.id %>" %><%=comment.user.name%></a></p>
-					<p><%=comment.comment%></p>
-				</div>
-	        <% end %>
 	  	</div>
 	</div>
 

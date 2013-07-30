@@ -9,7 +9,7 @@ class Dare < ActiveRecord::Base
   	average = (self.current_price/self.target_price)*100
   	if average >= 100
   		100
-  	elsif
+  	elsif average <= 5
   		average == 0
       5
     else 

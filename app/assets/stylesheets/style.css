@@ -8,3 +8,9 @@ img{
 #to-do li{
     margin-left:40px;
 }
+.payform{
+    display:inline-block;
+}
+h6{
+    text-align:center
+}

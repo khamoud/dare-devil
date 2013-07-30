@@ -1,1 +1,32 @@
+	<div class="row">
+		<form action="/dares/" method="post">
+	  		<fieldset>
+	    		<legend>Finish the Dare</legend>
 
+	    		<div class="row">
+		      		<div class="large-12 columns">
+			        	<label>Dare Title</label>
+			        	<input type="text" placeholder="Title" name="dare[title]">
+			      	</div>
+	    		</div>
+
+			    <div class="row">
+		      		<div class="large-12 columns">
+				        <label>Description</label>
+				        <textarea placeholder="What is the dare?" name="dare[description]"></textarea>
+			      	</div>
+			    </div>
+		      	<div class="row collapse">
+					<div class="small-3 large-3 columns">
+					  	<span class="prefix">http://www.youtube.com/watch/?v=</span>
+					</div>
+					<div class="small-6 large-9 columns">
+					    <input type="text" placeholder="EQMLYtRDU90" name="dare[url]">
+					</div>
+			 	</div>
+			    
+		      	<input type="submit" class="button" value="Finish the Dare!">
+		      	<% end %>
+	  		</fieldset>
+		</form>
+	</div>
