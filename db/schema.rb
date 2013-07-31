@@ -76,13 +76,4 @@ ActiveRecord::Schema.define(:version => 20130731003332) do
     t.string   "email"
   end
 
-  create_table "videos", :force => true do |t|
-    t.integer  "dare_id"
-    t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "videos", ["dare_id"], :name => "index_videos_on_dare_id"
-
 end
