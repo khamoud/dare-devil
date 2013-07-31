@@ -22,7 +22,7 @@ def create
     @dare = Dare.find(params[:dare_id])
     @dare.current_price = @dare.current_price+=(charge.amount/ 100)
     if (@dare.target_price - @dare.current_price) <= 0
-      @dare.completed = TRUE
+      @dare.completed_funding = TRUE
     end
     @dare.save!
 

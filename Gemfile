@@ -39,3 +39,5 @@ gem 'simple_form'
 gem "jquery-rails"
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'omniauth-facebook'
+gem "certified"
+gem 'kaminari'

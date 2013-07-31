@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   		flash[:success] = "You can now start recieving money!"
   		redirect_to @user
   	else
-  		flash[:failure] = "Something wasn't correct. Pleas try again."
+  		flash[:failure] = "Something wasn't correct. Please try again."
   		render "edit"
   	end
   end

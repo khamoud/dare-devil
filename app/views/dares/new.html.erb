@@ -1,12 +1,19 @@
-	<% if flash[:success] %>
-	<p><%= flash[:success]%></p>
-<%elsif flash[:failure]%>
-	<% flash[:failure].each do |message| %>
-		<p><%= message %></p>
-	<%end%>
-<%end%>
 
 	<div class="row">
+		<% if flash[:success] %>
+			<p><%= flash[:success]%></p>
+		<%elsif flash[:failure]%>
+			<div class="row">
+				<div data-alert class="alert-box alert radius large-8 columns">
+					<ul>
+					<% flash[:failure].each do |message| %>
+						<li><%= message %></li>
+					<%end%>
+					</ul>
+				</div>
+			</div>
+		<%end%>
+
 		<form action="/dares/" method="post">
 	  		<fieldset>
 	    		<legend>New Dare</legend>

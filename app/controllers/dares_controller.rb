@@ -14,7 +14,7 @@ class DaresController < ApplicationController
 
 
   def index
-  	@dares = Dare.order("created_at DESC")
+  	@dares = Dare.order("created_at DESC").page(params[:page]).per(9)
     
   end
 
@@ -36,7 +36,7 @@ class DaresController < ApplicationController
     if @dare.save
       redirect_to @dare
     else
-      flash[:failure] = @user.errors.full_messages
+      flash[:failure] = @dare.errors.full_messages
       render :new
     end
   end

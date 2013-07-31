@@ -5,18 +5,27 @@
 				<div data-alert class="alert-box success radius"><%= flash[:success]%></div>
 			<%end%>
 	  	<div class="small-10 small-centered columns">
-			<%if current_user == @dare.user %>
-				<%if @dare.completed %>
-						<a href="/dares/<%=@dare.id%>/edit">You must complete this dare now to get your money.</a>
-				<%end%>
-			<%end%>
+			
 
 			<h3><%= @dare.title %></h3>
 			<h4><a href="/users/<%=@dare.user.id%>"><%= @dare.user.name%></a></h4>
+			<%if current_user == @dare.user %>
+				<%if @dare.completed && @dare.finshedurl.nil?%>
+					<a href="/dares/<%=@dare.id%>/edit">You must complete this dare now to get your money.</a>	
+				<%end%>
+			<%end%>
+
+			
   			<div class="flex-video">
+  				<%if @dare.completed_funding && !(@dare.finshedurl.nil?) %>
+					<iframe width="560" height="315" src="//www.youtube.com/embed/<%=@dare.finshedurl%>" frameborder="0" allowfullscreen></iframe>
+  				<%else%>
   				<iframe width="560" height="315" src="//www.youtube.com/embed/<%=@dare.url%>" frameborder="0" allowfullscreen></iframe>
+  				<%end%>
 			</div>
 	  		<p><%= @dare.description %>
+	  			<%if @dare.completed_funding && !(@dare.finshedurl.nil?) %>
+	  			<%else%>
 	  			<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
 	  			  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 	  			  <h6>$1 Dare</h6>
@@ -89,10 +98,23 @@
 				  </script>
 				  <input type="hidden" name="pay" value="100">
 				</form>
+				<%end%>
 	  		</p>
 	  		<p><%= number_to_currency(@dare.current_price, :unit => "$") %> out of <%= number_to_currency(@dare.target_price, :unit=> "$")%> has been raised </p>
 	  		<div class="progress large-6 success round"><span class="meter" style="width: <%=@dare.percent%>%"></span></div>
-        	
+	  		<form action="/dares/<%=@dare.id%>/comments" method="post">
+				<input type="text" name="comment[comment]" id="" placeholder="Leave a comment...">
+				<input type="hidden" name="comment[current_user.id]">
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input type="submit" value="Comment!" class="button">
+	  		</form>
+	  		<div class="row">
+	  			<%@comments.each do |comment|%>
+	  			<div class="comment">
+	  				<p></p>
+	  			</div>
+	  			<%end%>
+	  		</div>
 	  	</div>
 	</div>
 
