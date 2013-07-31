@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-  has_many :dares
+  has_many :dares, :dependent => :destroy
   has_many :backers
+  attr_accessible :email
+
 end

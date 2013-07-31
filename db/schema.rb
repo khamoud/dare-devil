@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730183242) do
+ActiveRecord::Schema.define(:version => 20130731003332) do
 
   create_table "backers", :force => true do |t|
     t.float    "amount"
@@ -56,10 +56,11 @@ ActiveRecord::Schema.define(:version => 20130730183242) do
     t.integer  "funding_period"
     t.integer  "days_passed"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "url"
     t.string   "finshedurl"
+    t.boolean  "completed_funding"
   end
 
   add_index "dares", ["user_id"], :name => "index_dares_on_user_id"

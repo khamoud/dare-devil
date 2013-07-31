@@ -1,9 +1,16 @@
-	<% if flash[:success] %>
-	<p><%= flash[:success]%></p>
-	<%end%>
+
 	<!-- Body content-->
 	<div class="row">
+			<% if flash[:success] %>
+				<div data-alert class="alert-box success radius"><%= flash[:success]%></div>
+			<%end%>
 	  	<div class="small-10 small-centered columns">
+			<%if current_user == @dare.user %>
+				<%if @dare.completed %>
+						<a href="/dares/<%=@dare.id%>/edit">You must complete this dare now to get your money.</a>
+				<%end%>
+			<%end%>
+
 			<h3><%= @dare.title %></h3>
 			<h4><a href="/users/<%=@dare.user.id%>"><%= @dare.user.name%></a></h4>
   			<div class="flex-video">
@@ -11,6 +18,7 @@
 			</div>
 	  		<p><%= @dare.description %>
 	  			<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+	  			  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 	  			  <h6>$1 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
@@ -22,6 +30,7 @@
 				  <input type="hidden" name="pay" value="1">
 				</form>
 				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+				  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 					<h6>$5 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
@@ -33,6 +42,7 @@
 				  <input type="hidden" name="pay" value="5">
 				</form>
 				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+			      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 					<h6>$10 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
@@ -44,6 +54,7 @@
 				  <input type="hidden" name="pay" value="10">
 				</form>
 				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+				  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 					<h6>$20 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
@@ -55,6 +66,7 @@
 				  <input type="hidden" name="pay" value="20">
 				</form>
 				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 					<h6>$50 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
@@ -66,6 +78,7 @@
 				  <input type="hidden" name="pay" value="50">
 				</form>
 				<form action="/dares/<%=@dare.id%>/charges" method="POST" class="payform">
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 					<h6>$100</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"

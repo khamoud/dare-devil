@@ -1,0 +1,25 @@
+<div class="row">
+	
+	<% if flash[:failure] %>
+		<div class="row">
+			<div class="small-6 columns">
+				<div data-alert class="alert-box alert radius">
+					<p><%= flash[:failure]%></p>
+				</div>
+			</div>
+		</div>
+	<%end%>
+
+	<h1>We need your email!</h1>
+	<p>In order to get paid the money that you deserver we need to know what email to send it to.  Just enter your email below and we will send you all the funds that you have earned!  If you haven't earned any you can always create a Dare and start crowdfunding today!</p>
+	<form action="/users/<%=@user.id%>" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<input type="text" name="email" placeholder="example@gmail.com">
+		<input type="hidden" name="_method" value="put">
+		<input type="submit" class="button" value="Send me money!">
+	</form>	
+
+
+</div>
+
+
