@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
 def create
   # Set your secret key: remember to change this to your live secret key in production
   # See your keys here https://manage.stripe.com/account
-  Stripe.api_key = "sk_test_XTxlbB0BPMwOYNLbOOiVkHOv"
+  Stripe.api_key = "sk_live_oiK03QDHKHc1ZbaO09ExY4rW"
   @dare = Dare.find(params[:dare_id])
   # Get the credit card details submitted by the form
   token = params[:stripeToken]

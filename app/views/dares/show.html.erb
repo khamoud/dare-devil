@@ -5,19 +5,20 @@
 				<div data-alert class="alert-box success radius"><%= flash[:success]%></div>
 			<%end%>
 	  	<div class="small-10 small-centered columns">
-			
+			<%if @dare.completed_funding && !(@dare.finshedurl.nil?) %>
+				<h5>Enjoy <a href="/users/<%=@dare.user_id%>"><%=@dare.user.name %></a> finishing the dare!</h5>
+			<%end%> 
 
 			<h3><%= @dare.title %></h3>
 			<h4><a href="/users/<%=@dare.user.id%>"><%= @dare.user.name%></a></h4>
 			<%if current_user == @dare.user %>
-				<%if @dare.completed && @dare.finshedurl.nil?%>
+				<%if @dare.completed_funding && @dare.finshedurl.nil?%>
 					<a href="/dares/<%=@dare.id%>/edit">You must complete this dare now to get your money.</a>	
 				<%end%>
 			<%end%>
-
-			
   			<div class="flex-video">
   				<%if @dare.completed_funding && !(@dare.finshedurl.nil?) %>
+
 					<iframe width="560" height="315" src="//www.youtube.com/embed/<%=@dare.finshedurl%>" frameborder="0" allowfullscreen></iframe>
   				<%else%>
   				<iframe width="560" height="315" src="//www.youtube.com/embed/<%=@dare.url%>" frameborder="0" allowfullscreen></iframe>
@@ -31,7 +32,7 @@
 	  			  <h6>$1 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-key="pk_live_sGENkZPNEiNKfO64wcut0zJq"
 				    data-amount="100"
 				    data-name="$1 Dare"
 				    data-description="<%=@dare.title%>">
@@ -43,7 +44,7 @@
 					<h6>$5 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-key="pk_live_sGENkZPNEiNKfO64wcut0zJq"
 				    data-amount="500"
 				    data-name="$5 Dare"
 				    data-description="<%=@dare.title%>">
@@ -55,7 +56,7 @@
 					<h6>$10 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-key="pk_live_sGENkZPNEiNKfO64wcut0zJq"
 				    data-amount="1000"
 				    data-name="$10 Dare"
 				    data-description="<%=@dare.title%>">
@@ -67,7 +68,7 @@
 					<h6>$20 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-key="pk_live_sGENkZPNEiNKfO64wcut0zJq"
 				    data-amount="2000"
 				    data-name="$20 Dare"
 				    data-description="<%=@dare.title%>">
@@ -79,7 +80,7 @@
 					<h6>$50 Dare</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-key="pk_live_sGENkZPNEiNKfO64wcut0zJq"
 				    data-amount="5000"
 				    data-name="$50 Dare"
 				    data-description="<%=@dare.title%>">
@@ -91,7 +92,7 @@
 					<h6>$100</h6>
 				  <script
 				    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-				    data-key="pk_test_vZvHiuFoN6d4FEw1ZdQlTohW"
+				    data-key="pk_live_sGENkZPNEiNKfO64wcut0zJq"
 				    data-amount="10000"
 				    data-name="$100 Dare"
 				    data-description="<%=@dare.title%>">
@@ -102,19 +103,7 @@
 	  		</p>
 	  		<p><%= number_to_currency(@dare.current_price, :unit => "$") %> out of <%= number_to_currency(@dare.target_price, :unit=> "$")%> has been raised </p>
 	  		<div class="progress large-6 success round"><span class="meter" style="width: <%=@dare.percent%>%"></span></div>
-	  		<form action="/dares/<%=@dare.id%>/comments" method="post">
-				<input type="text" name="comment[comment]" id="" placeholder="Leave a comment...">
-				<input type="hidden" name="comment[current_user.id]">
-				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-				<input type="submit" value="Comment!" class="button">
-	  		</form>
-	  		<div class="row">
-	  			<%@comments.each do |comment|%>
-	  			<div class="comment">
-	  				<p></p>
-	  			</div>
-	  			<%end%>
-	  		</div>
+	  		
 	  	</div>
 	</div>
 

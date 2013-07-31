@@ -7,7 +7,7 @@ class DaresController < ApplicationController
       redirect_to root_path
       #Or do something else here
     end
-    if Dare.find(params[:id]).completed == FALSE
+    if Dare.find(params[:id]).completed_funding == FALSE
       redirect_to @dare 
     end
   end

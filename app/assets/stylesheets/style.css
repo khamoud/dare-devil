@@ -1,5 +1,6 @@
 h1{
 	color: #2BA6CB;
+	text-align:center;
 }
 img{
 	float:left;
@@ -14,3 +15,33 @@ img{
 h6{
     text-align:center
 }
+h5{
+    text-align:center;
+}
+h4{
+    text-align:center;
+}
+h1{
+	color: #2BA6CB;
+	text-align:center;
+}
+img{
+	float:left;
+	margin-right:15px;
+}
+#to-do li{
+    margin-left:40px;
+}
+.payform{
+    display:inline-block;
+}
+h6{
+    text-align:center
+}
+h5{
+    text-align:center;
+}
+h3{
+    text-align:center;
+}
+
