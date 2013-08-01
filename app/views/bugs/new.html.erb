@@ -1,2 +1,6 @@
-<h1>Bugs#new</h1>
-<p>Find me in app/views/bugs/new.html.erb</p>
+<div class="row">
+	<%= simple_form_for @bug do |f| %>
+	<%= f.input :bug %>
+	<%= f.button :submit %>
+	<% end %>
+</div>

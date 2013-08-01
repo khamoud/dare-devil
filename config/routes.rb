@@ -14,7 +14,7 @@ DareDevil::Application.routes.draw do
   resources :payments, only: [ :new, :create ]
   resources :about, only: [:index]
   resources :contact, only: [:index]
-
+  resources :bugs, only: [:new, :index, :create]
   resources :dares do
     resources :charges, only: [ :new, :create ]
     resources :comments, only: [ :new, :create ]
