@@ -1,5 +1,9 @@
 DareDevil::Application.routes.draw do
 
+  get "bugs/new"
+
+  get "bugs/create"
+
   get "contact/index"
 
   get "about/index"

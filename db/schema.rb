@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731003332) do
+ActiveRecord::Schema.define(:version => 20130801213127) do
 
   create_table "backers", :force => true do |t|
     t.float    "amount"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(:version => 20130731003332) do
 
   add_index "backers", ["dare_id"], :name => "index_backers_on_dare_id"
   add_index "backers", ["user_id"], :name => "index_backers_on_user_id"
+
+  create_table "bugs", :force => true do |t|
+    t.text     "bug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "challenges", :force => true do |t|
     t.integer  "dare_id"
