@@ -10,6 +10,8 @@ class Dare < ActiveRecord::Base
   validates :days_passed, :funding_period, :target_price, :numericality => true
   validates_length_of :url, :minimum => 11, :maximum => 11, :allow_blank => false
   validates_length_of :finshedurl, :minimum => 11, :maximum => 11, :allow_blank => true
+  validates :funding_period, :numericality => {:greateer_than => 0}, :numericality => {:less_than => 30}
+  validates :target_price, :numericality => {:greateer_than => 0}
   
   def percent
   	average = (self.current_price/self.target_price)*100
