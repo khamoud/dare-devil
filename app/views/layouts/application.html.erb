@@ -26,9 +26,11 @@
   <body>
 
   <%= render "shared/menu" %>
-  <%= render "shared/header" %>
+  
   <div id="wrapper">
+    <div class="content">
      <%= yield %>
+     </div>
    </div>
    <div class="push"></div>
   <%= render "shared/footer" %>

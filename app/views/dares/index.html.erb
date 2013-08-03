@@ -1,10 +1,6 @@
 
-	<div class="row">
-		<div class="large-12 columns">
-			<h1 class="docs header">CrowdDaring</h1>
-			<h4 class="subheader">Create dares, make videos, get paid!</h4>
-		</div>
-	</div>
+	<%= render "shared/header" %>
+
 	<!-- Using only the large-block-grid -->
 	<div class="row">
 		<ul class="small-block-grid-3 small-centered">
@@ -12,7 +8,7 @@
 			  	<li><a href="/dares/<%=dare.id%>"><img src="http://img.youtube.com/vi/<%=dare.url %>/0.jpg"></a>
 			  		<a href="/dares/<%=dare.id%>"><h3><%=dare.title%></h3></a>
 			  		<a href="/users/<%=dare.user.id%>"><%=dare.user.name%></a>
-			  		<p><%=dare.description%></p>
+			  		<p><%=truncate(dare.description, length: 140)%></p>
 			  		<p><%=number_to_currency(dare.current_price, :unit => '$')%> out of <%=number_to_currency(dare.target_price, :unit => '$')%> has been raised for this dare.</p> 
 			  		<div class="progress large-12 success round"><span class="meter" style="width: <%=dare.percent%>%"></span></div>
 			  		<p><b>This dare expires on <%=dare.inTime.to_formatted_s(:long) %>.</b></p>
