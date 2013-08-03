@@ -28,3 +28,19 @@ img{
 .payform{
     display:inline-block;
 }
+#wrapper{
+    background-image: url('ba.jpg')
+}
+header{
+    margin:0px;
+    padding:0px;
+}
+#footer{
+    margin-top:-20px;
+    padding:0px;
+}
+.row{
+    background-color:white;
+    border-radius:5px;
+    opacity:.6
+}

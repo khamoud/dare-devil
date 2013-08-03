@@ -26,9 +26,10 @@
   <body>
 
   <%= render "shared/menu" %>
-
+  <%= render "shared/header" %>
+  <div id="wrapper">
     <%= yield %>
-    
+  </div>
   <%= render "shared/footer" %>
     
     <%= javascript_include_tag "application" %>
