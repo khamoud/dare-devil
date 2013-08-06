@@ -6,7 +6,7 @@
 
 # Ignore bundler config
 /.bundle
-
+/.config
 /config/initializers/stripe.rb
 /app/controllers/charges_controller.rb
 
