@@ -39,3 +39,4 @@ pickle-email-*.html
 .project
 /stripe-*.gem
 config/initializers/stripe.rb
+app/controllers/charges_controller.rb
