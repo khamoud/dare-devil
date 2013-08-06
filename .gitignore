@@ -37,4 +37,4 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 .project
-config/initializers/
+/stripe-*.gem
